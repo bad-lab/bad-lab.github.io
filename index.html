@@ -260,7 +260,7 @@
     <a href="https://github.com/bad-lab/some-experiment">[ some-experiment ]</a>
   </div>
 
-  <svg class='grains' viewBox="0 0 200 200" preserveAspectRatio="xMaxYMax slice" xmlns='http://www.w3.org/2000/svg'>
+  <svg class='grains' viewBox="0 0 600 600" preserveAspectRatio="xMaxYMax slice" xmlns='http://www.w3.org/2000/svg'>
 
     <filter id='noiseFilter'>
       <feTurbulence id="turb" type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch' />
@@ -288,24 +288,26 @@
 
   <script name='add-turbulence'>
 
-    const turb = document.querySelector("#turb")
-    let start, previousTimeStamp
+    // my iPhone XR can't handle this...
 
-    function step(timestamp) {
-      if (start === undefined) {
-        start = timestamp
-      }
-      const elapsed = timestamp - start
+    // const turb = document.querySelector("#turb")
+    // let start, previousTimeStamp
 
-      if (previousTimeStamp !== timestamp) {
-        const freq = 0.3 * Math.sin(elapsed) + 0.95
-        turb.setAttribute("baseFrequency", freq.toString())
-      }
+    // function step(timestamp) {
+    //   if (start === undefined) {
+    //     start = timestamp
+    //   }
+    //   const elapsed = timestamp - start
 
-      requestAnimationFrame(step)
-    }
+    //   if (previousTimeStamp !== timestamp) {
+    //     const freq = 0.3 * Math.sin(elapsed) + 0.95
+    //     turb.setAttribute("baseFrequency", freq.toString())
+    //   }
 
-    requestAnimationFrame(step)
+    //   requestAnimationFrame(step)
+    // }
+
+    // requestAnimationFrame(step)
   </script>
 </body>
 
