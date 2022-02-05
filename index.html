@@ -1,0 +1,211 @@
+<html>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<style>
+  :root {
+
+    --bg: #1a0600;
+    --fg: #ffd2d2;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  .fill {
+    width: 100%;
+    height: 100%;
+  }
+
+  .header {
+    width: 100vw;
+    height: calc(100vh - 10rem);
+    clip-path: polygon(0 0, 100% 0, 100% 30%, 100% 91%, 50% 100%, 50% 100%, 0 93%, 0% 30%);
+  }
+
+  .header img {
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .title {
+    display: flex;
+    font-size: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .warranty {
+    padding: 2rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    max-width: 60rem;
+    font-weight: 200;
+  }
+
+  .nah {
+    text-decoration: line-through;
+  }
+
+  .title span {
+    display: inline-block;
+  }
+
+  .upside-down {
+    transform: rotate(180deg) translateY(-4px);
+  }
+
+  .appear {
+    animation: appear 3.82s cubic-bezier(.36, .07, .19, .97) both;
+  }
+
+  .pale {
+    opacity: 0.5;
+  }
+
+  .quite-pale {
+    opacity: 0.2;
+  }
+
+  .shivering {
+    animation: shiver 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  }
+
+  .delayed-anim {
+    animation-delay: 0.2s
+  }
+
+  .footer {
+    font-family: monospace;
+    padding: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  a,
+  a:active {
+    color: var(--fg);
+    text-decoration: none;
+    transition: 0.1s transform ease-in-out;
+    transform: rotate(0deg);
+    background: transparent;
+  }
+
+  a:hover {
+    transform: rotate(15deg);
+  }
+
+  .grains {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.05;
+  }
+
+  @keyframes shiver {
+
+    10%,
+    90% {
+      opacity: 0.3;
+      transform: rotate(2deg) translate3d(-1px, -2px, 0);
+    }
+
+    20%,
+    80% {
+      opacity: 0.1;
+      transform: rotate(-7deg) translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+      opacity: 0.2;
+      transform: rotate(-4deg) translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+      opacity: 0.3;
+      transform: rotate(2deg) translate3d(4px, 0, 0);
+    }
+  }
+
+  @keyframes appear {
+
+    0% {
+      opacity: 0.05;
+    }
+
+    100% {
+      opacity: 0.2;
+    }
+  }
+</style>
+
+<body>
+  <div class='header'>
+    <img class="fill" src="images/An_explosion_in_a_laboratory._Oil_painting._Wellcome_L0076243.jpg" />
+  </div>
+
+  <div class='body'>
+    <div class='title'>
+      <span>b</span>
+      <span class='pale shivering'>a</span>
+      <span>d</span>
+      <span class='upside-down appear quite-pale'>&#9785</span>
+      <span>l</span>
+      <span class='pale shivering delayed-anim'>a</span>
+      <span>b</span>
+    </div>
+    <p class='warranty nah'>
+      No Warranty. EXCEPT AS EXPRESSLY SET FORTH IN THIS AGREEMENT, THE PROGRAM
+      IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+      KIND, EITHER EXPRESS OR IMPLIED INCLUDING, WITHOUT LIMITATION, ANY
+      WARRANTIES OR CONDITIONS OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY OR
+      FITNESS FOR A PARTICULAR PURPOSE. Each Recipient is solely responsible for
+      determining the appropriateness of using and distributing the Program and
+      assumes all risks associated with its exercise of rights under this
+      Agreement , including but not limited to the risks and costs of program
+      errors, compliance with applicable laws, damage to or loss of data,
+      programs or equipment, and unavailability or interruption of operations.
+    </p>
+    <p class='warranty'>I mean, it <b>looks</b> safe, right?</p>
+  </div>
+
+  <div class='footer'>
+    <a href="https://github.com/bad-lab/some-experiment">[ some-experiment ]</a>
+  </div>
+
+  <svg class='grains' viewBox="0 0 200 200" preserveAspectRatio="xMaxYMax slice" xmlns='http://www.w3.org/2000/svg'>
+
+    <filter id='noiseFilter'>
+      <feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch' />
+    </filter>
+
+    <rect width='100%' height='100%' filter='url(#noiseFilter)' />
+  </svg>
+</body>
+
+</html>
