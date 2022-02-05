@@ -39,6 +39,9 @@
   }
 
   /* https://stackoverflow.com/a/61683565 */
+  /* bah: this does not work, maybe due to the height: max-content */
+  /* The intent is to prevent image resize when scrolling, as on mobile
+     browsers the url bar disappears and reappears with scrolling */
   .cover-img-mobile-fix-wrapper {
     position: absolute;
     height: max-content;
