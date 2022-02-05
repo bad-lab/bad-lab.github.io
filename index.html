@@ -38,6 +38,18 @@
     color: var(--fg);
   }
 
+  /* https://stackoverflow.com/a/61683565 */
+  .cover-img-mobile-fix-wrapper {
+    position: absolute;
+    height: max-content;
+    top: 0.5px;
+    left: 0;
+    right: 0;
+    bottom: 0.5px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
   .fill {
     width: 100%;
     height: 100%;
@@ -227,47 +239,49 @@
 </style>
 
 <body>
-  <div class='header'>
-    <img class="fill" src="images/An_explosion_in_a_laboratory._Oil_painting._Wellcome_L0076243-blue.jpg" />
-  </div>
-
-  <div class='body'>
-    <div class='title'>
-      <span>b</span>
-      <span class='pale shivering'>a</span>
-      <span>d</span>
-      <span class='upside-down appear face'>&#9785</span>
-      <span>l</span>
-      <span class='pale shivering delayed-anim'>a</span>
-      <span>b</span>
+  <div class='cover-img-mobile-fix-wrapper'>
+    <div class='header'>
+      <img class="fill" src="images/An_explosion_in_a_laboratory._Oil_painting._Wellcome_L0076243-blue.jpg" />
     </div>
-    <p class='warranty pale nah'>
-      No Warranty. EXCEPT AS EXPRESSLY SET FORTH IN THIS AGREEMENT, THE PROGRAM
-      IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-      KIND, EITHER EXPRESS OR IMPLIED INCLUDING, WITHOUT LIMITATION, ANY
-      WARRANTIES OR CONDITIONS OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY OR
-      FITNESS FOR A PARTICULAR PURPOSE. Each Recipient is solely responsible for
-      determining the appropriateness of using and distributing the Program and
-      assumes all risks associated with its exercise of rights under this
-      Agreement , including but not limited to the risks and costs of program
-      errors, compliance with applicable laws, damage to or loss of data,
-      programs or equipment, and unavailability or interruption of operations.
-    </p>
-    <p class='warranty'>I mean, it <b>looks</b> safe, right?</p>
+
+    <div class='body'>
+      <div class='title'>
+        <span>b</span>
+        <span class='pale shivering'>a</span>
+        <span>d</span>
+        <span class='upside-down appear face'>&#9785</span>
+        <span>l</span>
+        <span class='pale shivering delayed-anim'>a</span>
+        <span>b</span>
+      </div>
+      <p class='warranty pale nah'>
+        No Warranty. EXCEPT AS EXPRESSLY SET FORTH IN THIS AGREEMENT, THE PROGRAM
+        IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+        KIND, EITHER EXPRESS OR IMPLIED INCLUDING, WITHOUT LIMITATION, ANY
+        WARRANTIES OR CONDITIONS OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY OR
+        FITNESS FOR A PARTICULAR PURPOSE. Each Recipient is solely responsible for
+        determining the appropriateness of using and distributing the Program and
+        assumes all risks associated with its exercise of rights under this
+        Agreement , including but not limited to the risks and costs of program
+        errors, compliance with applicable laws, damage to or loss of data,
+        programs or equipment, and unavailability or interruption of operations.
+      </p>
+      <p class='warranty'>I mean, it <b>looks</b> safe, right?</p>
+    </div>
+
+    <div class='footer'>
+      <a href="https://github.com/bad-lab/some-experiment">[ some-experiment ]</a>
+    </div>
+
+    <svg class='grains' viewBox="0 0 600 600" preserveAspectRatio="xMaxYMax slice" xmlns='http://www.w3.org/2000/svg'>
+
+      <filter id='noiseFilter'>
+        <feTurbulence id="turb" type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch' />
+      </filter>
+
+      <rect width='100%' height='100%' filter='url(#noiseFilter)' />
+    </svg>
   </div>
-
-  <div class='footer'>
-    <a href="https://github.com/bad-lab/some-experiment">[ some-experiment ]</a>
-  </div>
-
-  <svg class='grains' viewBox="0 0 600 600" preserveAspectRatio="xMaxYMax slice" xmlns='http://www.w3.org/2000/svg'>
-
-    <filter id='noiseFilter'>
-      <feTurbulence id="turb" type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch' />
-    </filter>
-
-    <rect width='100%' height='100%' filter='url(#noiseFilter)' />
-  </svg>
 
   <script name='apply-img-anim'>
 
