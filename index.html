@@ -14,6 +14,7 @@
     --bg: #1a0600;
     --fg: #ffd2d2;
     --link: #ff7777;
+    --pop: cyan;
   }
 
   * {
@@ -94,6 +95,10 @@
     opacity: 0.2;
   }
 
+  .face {
+    color: var(--pop);
+  }
+
   .shivering {
     animation: shiver 0.82s cubic-bezier(.36, .07, .19, .97) both;
   }
@@ -123,7 +128,7 @@
 
   a:hover {
     transform: rotate(2deg);
-    color: var(--fg);
+    color: var(--pop);
   }
 
   .grains {
@@ -167,11 +172,17 @@
   @keyframes appear {
 
     0% {
-      opacity: 0.05;
+      opacity: 0.01;
+      transform: scale(0.5) rotate(180deg) translateY(-4px);
+    }
+
+    50% {
+      transform: scale(1.1) rotate(180deg) translateY(-4px);
     }
 
     100% {
-      opacity: 0.2;
+      opacity: 1;
+      transform: scale(1) rotate(180deg) translateY(-4px);
     }
   }
 </style>
@@ -186,12 +197,12 @@
       <span>b</span>
       <span class='pale shivering'>a</span>
       <span>d</span>
-      <span class='upside-down appear quite-pale'>&#9785</span>
+      <span class='upside-down appear face'>&#9785</span>
       <span>l</span>
       <span class='pale shivering delayed-anim'>a</span>
       <span>b</span>
     </div>
-    <p class='warranty nah'>
+    <p class='warranty pale nah'>
       No Warranty. EXCEPT AS EXPRESSLY SET FORTH IN THIS AGREEMENT, THE PROGRAM
       IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
       KIND, EITHER EXPRESS OR IMPLIED INCLUDING, WITHOUT LIMITATION, ANY
