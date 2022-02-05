@@ -1,6 +1,8 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -46,7 +48,14 @@
     height: calc(100vh - 10rem);
     clip-path: polygon(0 0, 100% 0, 100% 30%, 100% 91%, 50% 100%, 50% 100%, 0 93%, 0% 30%);
     margin: 0 auto;
-    animation: widen-in 5s cubic-bezier(.04, .95, .06, .97);
+  }
+
+  .fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+
+  .widen-in {
+    animation: widen-in 5s cubic-bezier(.04, .95, .06, .97) forwards;
   }
 
   .header img {
@@ -191,11 +200,28 @@
   @keyframes widen-in {
 
     0% {
-      width: 0vw;
+      width: 1vw;
     }
 
     100% {
       width: 100vw;
+    }
+  }
+
+  @keyframes fade-in {
+
+    0% {
+      opacity: 0;
+      transform: translateY(-5%);
+    }
+
+    95% {
+      transform: translateY(0%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
     }
   }
 </style>
@@ -243,7 +269,25 @@
     <rect width='100%' height='100%' filter='url(#noiseFilter)' />
   </svg>
 
-  <script>
+  <script name='apply-img-anim'>
+
+    const img = document.querySelector("img")
+    const header = document.querySelector('.header')
+    header.style.width = '1vw'
+
+    img.onload = () => {
+      header.classList.add('fade-in')
+      setTimeout(() => {
+        header.classList.add('widen-in')
+      }, 1000)
+    }
+
+    img.src = "images/An_explosion_in_a_laboratory._Oil_painting._Wellcome_L0076243-blue.jpg"
+
+  </script>
+
+  <script name='add-turbulence'>
+
     const turb = document.querySelector("#turb")
     let start, previousTimeStamp
 
