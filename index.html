@@ -11,9 +11,9 @@
 <style>
   :root {
 
-    --bg: #1a0600;
+    --bg: #00161a;
     --fg: #ffd2d2;
-    --link: #ff7777;
+    --link: #fff;
     --pop: cyan;
   }
 
@@ -45,6 +45,8 @@
     width: 100vw;
     height: calc(100vh - 10rem);
     clip-path: polygon(0 0, 100% 0, 100% 30%, 100% 91%, 50% 100%, 50% 100%, 0 93%, 0% 30%);
+    margin: 0 auto;
+    animation: widen-in 5s cubic-bezier(.04, .95, .06, .97);
   }
 
   .header img {
@@ -185,11 +187,22 @@
       transform: scale(1) rotate(180deg) translateY(-4px);
     }
   }
+
+  @keyframes widen-in {
+
+    0% {
+      width: 0vw;
+    }
+
+    100% {
+      width: 100vw;
+    }
+  }
 </style>
 
 <body>
   <div class='header'>
-    <img class="fill" src="images/An_explosion_in_a_laboratory._Oil_painting._Wellcome_L0076243.jpg" />
+    <img class="fill" src="images/An_explosion_in_a_laboratory._Oil_painting._Wellcome_L0076243-blue.jpg" />
   </div>
 
   <div class='body'>
